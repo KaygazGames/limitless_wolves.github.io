@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limitless Wolves</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: white; text-align: center; }
+
+        /* Dinamik Arka Plan */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(270deg, #003366, #0055A4, #002244);
+            background-size: 600% 600%;
+            animation: arkaPlan 10s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes arkaPlan {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 34, 68, 0.9);
+            padding: 15px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Köşelerdeki Logolar */
+        .logo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: auto;
+        }
+
+        .logo-left { left: 10px; }
+        .logo-right { right: 10px; }
+
+        /* Türk Bayrağı GIF */
+        .bayrak-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .bayrak-container img {
+            width: 250px;
+            height: auto;
+        }
+
+        nav ul { list-style: none; padding: 0; margin: 20px 0; }
+        nav ul li { display: inline; margin: 0 10px; }
+        nav ul li a { color: white; text-decoration: none; font-size: 18px; }
+
+        section { padding: 20px; }
+
+        .gallery { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .gallery img { width: 80%; max-width: 600px; height: auto; border-radius: 5px; border: 3px solid white; }
+
+        footer { background: rgba(0, 34, 68, 0.9); padding: 10px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Logo" alt="Logo 1" class="logo logo-left">
+        <h1>Limitless WOLVES</h1>
+        <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/BK.png" alt="Logo 2" class="logo logo-right">
+    </header>
+
+    <div class="bayrak-container">
+        <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Bayrak" alt="Türk Bayrağı">
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#hakkinda">Hakkında</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="​Proje Sunumu.pdf​" target="_blank">Yenilikçi Proje</a></li>
+        </ul>
+    </nav>
+
+    <section id="hakkinda">
+        <h2>Takım Hakkında</h2>
+        <p>Limitless Wolves, First Lego League yarışmasına katılan bir robotik takımıdır.</p>
+    </section>
+
+    <section id="galeri">
+        <h2>Fotoğraf Galerisi</h2>
+        <div class="gallery">
+            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/IMG_1152.jpeg" alt="Takım Fotoğrafı">
+            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Untitled design.png" alt="Robot Çalışması">
+            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Adsız tasarım.png" alt="First Lego League Yarışması">
+            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Pano.jpg" alt="Eklentiler">
+            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Riving Beef.png" alt="Yenilikçi Proje">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Limitless Wolves - SUBMERGED</p>
+    </footer>
+</body>
+</html>
