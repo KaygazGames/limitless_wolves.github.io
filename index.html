@@ -103,9 +103,10 @@
     button:hover {
       background-color: #003366;
     }
+    /* Eğer notların tümü ekranda gözükmesini istiyorsanız "max-height" özelliğini kaldırabilirsiniz */
     #notListesi {
       text-align: left;
-      max-height: 300px;
+      /* max-height: 300px; */
       overflow-y: auto;
       background: #002244;
       padding: 15px;
@@ -142,7 +143,7 @@
   
   <section id="hakkinda">
     <h2>Takım Hakkında</h2>
-    <p>Limitless Wolves, First Lego League yarışmasına katılan bir robotik takımıdır.</p>
+    <p>Limitless Wolves, First Lego League yarışmasına katılan bir robotik takımdır.</p>
   </section>
   
   <section id="galeri">
@@ -175,7 +176,7 @@
   </footer>
   
   <script>
-    // Firebase konfigürasyonunuzu buraya ekleyin (Firebase projenizi oluşturduktan sonra gerekli bilgileri alabilirsiniz)
+    // Firebase yapılandırmanız
     const firebaseConfig = {
       apiKey: "AIzaSyBFzvtN8txXLJPf7taXSP2QVQpi_B4NVFY",
       authDomain: "limitlesswolves-bk.firebaseapp.com",
@@ -183,45 +184,42 @@
       storageBucket: "limitlesswolves-bk.firebasestorage.app",
       messagingSenderId: "740267830619",
       appId: "1:740267830619:web:41edf2c3f6a3195341fe7e",
+      measurementId: "G-81Y272ZHR5"
     };
 
     // Firebase'i başlatın
     const app = firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore(app);
 
-    // Not ekleme işlemi: Form submit edildiğinde Firestore'a ekleniyor
+    // Not ekleme işlemi: Form gönderildiğinde Firestore'a not ekleniyor
     document.getElementById('notForm').addEventListener('submit', function(event) {
       event.preventDefault();
       const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
       const notInput = document.getElementById('notInput').value.trim();
-
       if (kullaniciAdi === '' || notInput === '') {
         alert('Lütfen kullanıcı adınızı ve notunuzu girin!');
         return;
       }
-
       db.collection("notlar").add({
         kullaniciAdi: kullaniciAdi,
         notInput: notInput,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       })
-      .then(function(docRef) {
+      .then(docRef => {
         console.log("Not eklendi, ID:", docRef.id);
       })
-      .catch(function(error) {
+      .catch(error => {
         console.error("Not eklenirken hata:", error);
       });
-
-      // Giriş alanlarını temizle
       document.getElementById('kullaniciAdi').value = '';
       document.getElementById('notInput').value = '';
     });
 
-    // Gerçek zamanlı güncelleme: Firestore'daki "notlar" koleksiyonunu dinleyerek not listesini güncelle
-    db.collection("notlar").orderBy("createdAt").onSnapshot(function(querySnapshot) {
+    // Gerçek zamanlı güncelleme: Tüm notlar anlık olarak gösteriliyor
+    db.collection("notlar").orderBy("createdAt").onSnapshot(querySnapshot => {
       const notListesi = document.getElementById('notListesi');
       notListesi.innerHTML = '';
-      querySnapshot.forEach(function(doc) {
+      querySnapshot.forEach(doc => {
         const data = doc.data();
         const yeniNot = document.createElement('div');
         yeniNot.classList.add('not');
