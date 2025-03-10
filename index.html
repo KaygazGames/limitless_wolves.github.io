@@ -1,230 +1,234 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Limitless Wolves</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            color: white; 
-            text-align: center; 
-        }
-        
-        /* Dinamik Arka Plan */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(270deg, #003366, #0055A4, #002244);
-            background-size: 600% 600%;
-            animation: arkaPlan 10s ease infinite;
-            z-index: -1;
-        }
-        
-        @keyframes arkaPlan {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        header {
-            background: rgba(0, 34, 68, 0.9);
-            padding: 15px;
-        }
-        
-        h1 { 
-            margin: 0; 
-            font-size: 2.5em; 
-        }
-        
-        nav ul { 
-            list-style: none; 
-            padding: 0; 
-            margin: 20px 0; 
-        }
-        nav ul li { 
-            display: inline; 
-            margin: 0 10px; 
-        }
-        nav ul li a { 
-            color: white; 
-            text-decoration: none; 
-            font-size: 18px; 
-        }
-        
-        section { 
-            padding: 20px; 
-        }
-        
-        footer { 
-            background: rgba(0, 34, 68, 0.9); 
-            padding: 10px; 
-            margin-top: 20px; 
-        }
-        
-        /* Fotoğraf Galerisi */
-        .gallery { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 15px; 
-        }
-        .gallery img { 
-            width: 80%; 
-            max-width: 600px; 
-            height: auto; 
-            border-radius: 5px; 
-            border: 3px solid white; 
-        }
-        
-        /* Not Bırakma ve Not Listesi Bölümleri */
-        #not-birak, #notlar {
-            background: rgba(0, 34, 68, 0.9);
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            border-radius: 5px;
-        }
-        #not-birak h2, #notlar h2 {
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: none;
-        }
-        
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #0055A4;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #003366;
-        }
-        
-        #notListesi {
-            text-align: left;
-            max-height: 300px;
-            overflow-y: auto;
-            background: #002244;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        
-        .not {
-            background: #003366;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        
-        .not strong {
-            color: #00BFFF;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limitless Wolves</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      color: white; 
+      text-align: center; 
+    }
+    /* Dinamik Arka Plan */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(270deg, #003366, #0055A4, #002244);
+      background-size: 600% 600%;
+      animation: arkaPlan 10s ease infinite;
+      z-index: -1;
+    }
+    @keyframes arkaPlan {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header {
+      background: rgba(0, 34, 68, 0.9);
+      padding: 15px;
+    }
+    h1 { 
+      margin: 0; 
+      font-size: 2.5em; 
+    }
+    nav ul { 
+      list-style: none; 
+      padding: 0; 
+      margin: 20px 0; 
+    }
+    nav ul li { 
+      display: inline; 
+      margin: 0 10px; 
+    }
+    nav ul li a { 
+      color: white; 
+      text-decoration: none; 
+      font-size: 18px; 
+    }
+    section { 
+      padding: 20px; 
+    }
+    footer { 
+      background: rgba(0, 34, 68, 0.9); 
+      padding: 10px; 
+      margin-top: 20px; 
+    }
+    /* Fotoğraf Galerisi */
+    .gallery { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 15px; 
+    }
+    .gallery img { 
+      width: 80%; 
+      max-width: 600px; 
+      height: auto; 
+      border-radius: 5px; 
+      border: 3px solid white; 
+    }
+    /* Not Bırakma ve Not Listesi Bölümleri */
+    #not-birak, #notlar {
+      background: rgba(0, 34, 68, 0.9);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 5px;
+    }
+    #not-birak h2, #notlar h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0055A4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #003366;
+    }
+    #notListesi {
+      text-align: left;
+      max-height: 300px;
+      overflow-y: auto;
+      background: #002244;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .not {
+      background: #003366;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .not strong {
+      color: #00BFFF;
+    }
+  </style>
+  <!-- Firebase SDK'larını ekleyin -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
 </head>
 <body>
-    <header>
-        <h1>LIMITLESS WOLVES</h1>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#hakkinda">Hakkında</a></li>
-            <li><a href="#galeri">Fotoğraflar</a></li>
-            <li><a href="#not-birak">Not Bırak</a></li>
-            <li><a href="https://bahcesehirokullari-my.sharepoint.com/:b:/g/personal/kagan_karaiyen_stu_bahcesehir_k12_tr/EVn4O2_QGrZGq2kkhIth8TsBrwd1mYag_QPoKvkdzoOd0w?e=EqcToh" target="_blank">Yenilikçi Proje</a></li>
-        </ul>
-    </nav>
-    
-    <section id="hakkinda">
-        <h2>Takım Hakkında</h2>
-        <p>Limitless Wolves, First Lego League yarışmasına katılan bir robotik takımıdır.</p>
-    </section>
-    
-    <section id="galeri">
-        <h2>Fotoğraf Galerisi</h2>
-        <div class="gallery">
-            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/IMG_1152.jpeg" alt="Takım Fotoğrafı">
-            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Untitled%20design.png" alt="Robot Çalışması">
-            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Ads%C4%B1z%20tasar%C4%B1m.png" alt="First Lego League Yarışması">
-            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Pano.jpg" alt="Eklentiler">
-            <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Riving%20Beef.png" alt="Yenilikçi Proje">
-        </div>
-    </section>
-    
-    <section id="not-birak">
-        <h2>Bugüne Bir Not Bırak</h2>
-        <form id="notForm">
-            <input type="text" id="kullaniciAdi" placeholder="Kullanıcı adınız..." required><br>
-            <textarea id="notInput" rows="4" placeholder="Bugün için bir not bırak..." required></textarea><br>
-            <button type="submit">Kaydet</button>
-        </form>
-    </section>
-    
-    <section id="notlar">
-        <h2>Bırakılan Notlar</h2>
-        <div id="notListesi"></div>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 Limitless Wolves - SUBMERGED</p>
-    </footer>
-    
-    <script>
-        // Not ekleme ve kaydetme işlemleri
-        document.getElementById('notForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
-            const notInput = document.getElementById('notInput').value.trim();
-            const notListesi = document.getElementById('notListesi');
-    
-            if (kullaniciAdi === '' || notInput === '') {
-                alert('Lütfen kullanıcı adınızı ve notunuzu girin!');
-                return;
-            }
-    
-            // Yeni notu oluştur ve listeye ekle
-            const yeniNot = document.createElement('div');
-            yeniNot.classList.add('not');
-            yeniNot.innerHTML = `<strong>${kullaniciAdi}:</strong> ${notInput}`;
-            notListesi.appendChild(yeniNot);
-    
-            // Giriş alanlarını temizle
-            document.getElementById('kullaniciAdi').value = '';
-            document.getElementById('notInput').value = '';
-    
-            // LocalStorage'a kaydet
-            let notlar = JSON.parse(localStorage.getItem('notlar')) || [];
-            notlar.push({ kullaniciAdi, notInput });
-            localStorage.setItem('notlar', JSON.stringify(notlar));
-        });
-    
-        // Sayfa yüklendiğinde daha önce kaydedilen notları getir
-        window.addEventListener('load', function() {
-            const notlar = JSON.parse(localStorage.getItem('notlar')) || [];
-            const notListesi = document.getElementById('notListesi');
-            notlar.forEach(({ kullaniciAdi, notInput }) => {
-                const yeniNot = document.createElement('div');
-                yeniNot.classList.add('not');
-                yeniNot.innerHTML = `<strong>${kullaniciAdi}:</strong> ${notInput}`;
-                notListesi.appendChild(yeniNot);
-            });
-        });
-    </script>
+  <header>
+    <h1>LIMITLESS WOLVES</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#hakkinda">Hakkında</a></li>
+      <li><a href="#galeri">Fotoğraflar</a></li>
+      <li><a href="#not-birak">Not Bırak</a></li>
+      <li><a href="https://bahcesehirokullari-my.sharepoint.com/:b:/g/personal/kagan_karaiyen_stu_bahcesehir_k12_tr/EVn4O2_QGrZGq2kkhIth8TsBrwd1mYag_QPoKvkdzoOd0w?e=EqcToh" target="_blank">Yenilikçi Proje</a></li>
+    </ul>
+  </nav>
+  
+  <section id="hakkinda">
+    <h2>Takım Hakkında</h2>
+    <p>Limitless Wolves, First Lego League yarışmasına katılan bir robotik takımıdır.</p>
+  </section>
+  
+  <section id="galeri">
+    <h2>Fotoğraf Galerisi</h2>
+    <div class="gallery">
+      <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/IMG_1152.jpeg" alt="Takım Fotoğrafı">
+      <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Untitled%20design.png" alt="Robot Çalışması">
+      <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Ads%C4%B1z%20tasar%C4%B1m.png" alt="First Lego League Yarışması">
+      <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Pano.jpg" alt="Eklentiler">
+      <img src="https://raw.githubusercontent.com/KaygazGames/LimitlessWolves/main/Riving%20Beef.png" alt="Yenilikçi Proje">
+    </div>
+  </section>
+  
+  <section id="not-birak">
+    <h2>Bugüne Bir Not Bırak</h2>
+    <form id="notForm">
+      <input type="text" id="kullaniciAdi" placeholder="Kullanıcı adınız..." required><br>
+      <textarea id="notInput" rows="4" placeholder="Bugün için bir not bırak..." required></textarea><br>
+      <button type="submit">Kaydet</button>
+    </form>
+  </section>
+  
+  <section id="notlar">
+    <h2>Bırakılan Notlar</h2>
+    <div id="notListesi"></div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Limitless Wolves - SUBMERGED</p>
+  </footer>
+  
+  <script>
+    // Firebase konfigürasyonunuzu buraya ekleyin (Firebase projenizi oluşturduktan sonra gerekli bilgileri alabilirsiniz)
+    const firebaseConfig = {
+      apiKey: "AIzaSyBFzvtN8txXLJPf7taXSP2QVQpi_B4NVFY",
+      authDomain: "limitlesswolves-bk.firebaseapp.com",
+      projectId: "limitlesswolves-bk",
+      storageBucket: "limitlesswolves-bk.firebasestorage.app",
+      messagingSenderId: "740267830619",
+      appId: "1:740267830619:web:41edf2c3f6a3195341fe7e",
+    };
+
+    // Firebase'i başlatın
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(app);
+
+    // Not ekleme işlemi: Form submit edildiğinde Firestore'a ekleniyor
+    document.getElementById('notForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+      const notInput = document.getElementById('notInput').value.trim();
+
+      if (kullaniciAdi === '' || notInput === '') {
+        alert('Lütfen kullanıcı adınızı ve notunuzu girin!');
+        return;
+      }
+
+      db.collection("notlar").add({
+        kullaniciAdi: kullaniciAdi,
+        notInput: notInput,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(function(docRef) {
+        console.log("Not eklendi, ID:", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Not eklenirken hata:", error);
+      });
+
+      // Giriş alanlarını temizle
+      document.getElementById('kullaniciAdi').value = '';
+      document.getElementById('notInput').value = '';
+    });
+
+    // Gerçek zamanlı güncelleme: Firestore'daki "notlar" koleksiyonunu dinleyerek not listesini güncelle
+    db.collection("notlar").orderBy("createdAt").onSnapshot(function(querySnapshot) {
+      const notListesi = document.getElementById('notListesi');
+      notListesi.innerHTML = '';
+      querySnapshot.forEach(function(doc) {
+        const data = doc.data();
+        const yeniNot = document.createElement('div');
+        yeniNot.classList.add('not');
+        yeniNot.innerHTML = `<strong>${data.kullaniciAdi}:</strong> ${data.notInput}`;
+        notListesi.appendChild(yeniNot);
+      });
+    });
+  </script>
 </body>
 </html>
